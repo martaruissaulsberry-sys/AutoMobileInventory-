@@ -5,7 +5,7 @@ public class Automobile {
     private String autoColor;
     private int autoYear;
 
-    // 1. Constructor: Initializes the vehicle attributes
+    // 1. Constructor: gives details of vehicles
     public Automobile(String make, String model, String color, int year) {
         this.autoMake = make;
         this.autoModel = model;
@@ -61,5 +61,29 @@ public class Automobile {
             "Color: " + autoColor, 
             "Year: " + autoYear
         };
+    }
+// Main method to demonstrate functionality
+    public static void main(String[] args) {
+        // Create a new instance
+        Automobile myCar = new Automobile("Toyota", "Camry", "Blue", 2020);
+        
+        // List initial vehicle
+        System.out.println("Initial Vehicle:");
+        for (String info : myCar.listVehicle()) {
+            System.out.println(info);
+        }
+
+        // Update the vehicle
+        System.out.println("\n" + myCar.updateVehicle("Honda", "Civic", "Red", 2022));
+
+        // Remove the vehicle (with matching details)
+        System.out.println("Attempting removal");
+        System.out.println(myCar.removeVehicle("Honda", "Civic", "Red", 2022));
+
+        // List after removal
+        System.out.println("\nVehicle after removal:");
+        for (String info : myCar.listVehicle()) {
+            System.out.println(info);
+        }
     }
 }
